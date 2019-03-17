@@ -8,5 +8,6 @@ setup(
     scripts=['mtl_to_xml.py'],
     author="Adam Russnogle",
     description="Convert Landsat MTL metadata to XML.",
-    license="Unlicense"
+    license=open('UNLICENSE').read(),
+    classifiers=['Topic :: Landsat :: data conversion']
 )
