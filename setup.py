@@ -10,7 +10,6 @@ setup(
     packages=find_packages(),
     scripts=['mtl_to_xml.py'],
     author="Adam Russnogle",
-    author_email="adamrussnogle@gmail.com",
     description="Convert Landsat MTL metadata to XML.",
     long_description=long_description,
     long_description_content_type="text/markdown",
