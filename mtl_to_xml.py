@@ -99,7 +99,7 @@ def indent(elem, level=0):
 def main():
 
     parser = argparse.ArgumentParser(
-        description='Choose target \'-t\', directory \'-d\', or scan \'-s\'mode to convert Landsat MTL to XML.')
+        description='Choose target \'-t\', directory \'-d\', or scan \'-s\' mode to convert Landsat MTL to XML.')
 
     parser.add_argument('-t', '--target',
                         action='store',

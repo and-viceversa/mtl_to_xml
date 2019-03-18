@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: mtl-to-xml
-Version: 0.2.0
+Version: 0.2.1
 Summary: Convert Landsat MTL metadata to XML.
 Home-page: https://github.com/and-viceversa/mtl_to_xml
 Author: AdamR
