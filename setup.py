@@ -6,15 +6,16 @@ with open("README.md", "r") as fh:
 
 setup(
     name="mtl_to_xml",
-    version="0.1",
+    version="0.1.1",
     packages=find_packages(),
     scripts=['mtl_to_xml.py'],
-    author="Adam Russnogle",
+    author="AdamR",
+    author_email="25871157+and-viceversa@users.noreply.github.com",
     description="Convert Landsat MTL metadata to XML.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/and-viceversa/mtl_to_xml",
-    license=open('UNLICENSE').read(),
+    license=open('LICENSE').read(),
     classifiers=[
         'Programming Language :: Python :: 3',
         'License :: Unlicense',
