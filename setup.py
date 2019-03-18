@@ -20,5 +20,4 @@ setup(
         'Programming Language :: Python :: 3',
         'License :: Unlicense',
         'Topic :: Landsat :: data conversion']
-
 )
