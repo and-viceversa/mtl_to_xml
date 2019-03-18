@@ -12,9 +12,13 @@ setup(
     author="Adam Russnogle",
     author_email="adamrussnogle@gmail.com",
     description="Convert Landsat MTL metadata to XML.",
-
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url="https://github.com/and-viceversa/mtl_to_xml",
     license=open('UNLICENSE').read(),
     classifiers=[
-    'Programming Language :: Python'
-    'Topic :: Landsat :: data conversion']
+        'Programming Language :: Python :: 3',
+        'License :: Unlicense',
+        'Topic :: Landsat :: data conversion']
+
 )
