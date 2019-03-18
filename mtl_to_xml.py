@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # Convert Landsat MTL text files to .xml using standard ElementTree
 # Python 3.7
 
