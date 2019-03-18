@@ -13,4 +13,4 @@ The script must be run in the same directory as the MTL files.
 Example: mtl_to_xml -d
 
 3. -s Scan mode is the same as directory mode, but converts all MTL files in the current directory and sub-directories.
-Example: mtl_to_xml -s
+Example: mtl_to_xml -s 
