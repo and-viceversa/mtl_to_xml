@@ -105,7 +105,7 @@ def main():
                         required=False,
                         help='Target mode converts a single MTL file to XML. \n '
                         'The script must be run in the same directory as the MTL file. \n '
-                        'Example: mtl_to_xml -t your_landsat_file_MTL.txt\" \n')
+                        'Example: mtl_to_xml -t your_landsat_file_MTL.txt \n')
 
     parser.add_argument('-d', '--directory',
                         action='store_const',
@@ -113,7 +113,7 @@ def main():
                         required=False,
                         help='Directory mode converts all MTL files in the current directory to XML. \n'
                         'The script must be run in the same directory as the MTL files. \n'
-                        'Example: python mtl_to_xml -d\" \n')
+                        'Example: mtl_to_xml -d \n')
 
     parser.add_argument('-s', '--scan',
                         required=False,
@@ -122,7 +122,7 @@ def main():
                         help='Scan mode converts all MTL files in the current directory to XML, '
                         'and then searches all sub-directories '
                         'and converts the MTL files that it finds. \n'
-                        'Example: python mtl_to_xml -s\" \n')
+                        'Example: mtl_to_xml -s \n')
 
     args = parser.parse_args()
 
