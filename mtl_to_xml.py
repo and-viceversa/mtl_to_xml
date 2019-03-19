@@ -21,8 +21,8 @@ def scan_mode():
 
 
 def scan_dir(pwd):
-    # Builds a dictionary of filepath:filename of all MTL files in a directory
-    # Sends that dictionary to mtl_to_xml for conversion
+    # Builds a dictionary of filepath:filename of all MTL files in a directory.
+    # Sends that dictionary to mtl_to_xml for conversion.
 
     dir_file_list = os.listdir(pwd)  # get list of all files in present working directory
     mtl_dict = {}                    # dict to hold filepath:filename
@@ -55,10 +55,11 @@ def mtl_to_xml(mtl_dict):
                         pre = temp[0:temp.index('=') - 1]           # getting a "key" for xml
                         post = temp[temp.index('=') + 2:]           # getting a "value" for xml
                     except Exception as e:
+                        print(e)
                         break                                       # when we hit the end of the file, silently break
                     if pre == 'END_GROUP':
                         continue
-                    elif pre == 'GROUP' in line:                    # in the mtl file, groups are children of root
+                    elif pre == 'GROUP' in line:                    # in the mtl file, "groups" are children of root
                         current_group = post
                         etree.SubElement(root, current_group)
                     elif '=' in line:
