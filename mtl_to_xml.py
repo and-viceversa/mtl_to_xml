@@ -97,8 +97,7 @@ def indent(elem, level=0):
             elem.tail = i
 
 
-def main():
-
+def parse_args():
     parser = argparse.ArgumentParser(
         description='Choose target \'-t\', directory \'-d\', or scan \'-s\' mode to convert Landsat MTL to XML.')
 
@@ -106,27 +105,33 @@ def main():
                         action='store',
                         required=False,
                         help='Target mode converts a single MTL file to XML. \n '
-                        'The script must be run in the same directory as the MTL file. \n '
-                        'Example: mtl_to_xml -t your_landsat_file_MTL.txt \n')
+                             'The script must be run in the same directory as the MTL file. \n '
+                             'Example: mtl_to_xml -t your_landsat_file_MTL.txt \n')
 
     parser.add_argument('-d', '--directory',
                         action='store_const',
                         const='-d',
                         required=False,
                         help='Directory mode converts all MTL files in the current directory to XML. \n'
-                        'The script must be run in the same directory as the MTL files. \n'
-                        'Example: mtl_to_xml -d \n')
+                             'The script must be run in the same directory as the MTL files. \n'
+                             'Example: mtl_to_xml -d \n')
 
     parser.add_argument('-s', '--scan',
                         required=False,
                         action='store_const',
                         const='-s',
                         help='Scan mode converts all MTL files in the current directory to XML, '
-                        'and then searches all sub-directories '
-                        'and converts the MTL files that it finds. \n'
-                        'Example: mtl_to_xml -s \n')
+                             'and then searches all sub-directories '
+                             'and converts the MTL files that it finds. \n'
+                             'Example: mtl_to_xml -s \n')
 
     args = parser.parse_args()
+    return args
+
+
+def main():
+
+    args = parse_args()
 
     if args.target:
         target_mode(args.target)
