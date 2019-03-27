@@ -52,8 +52,6 @@ def mtl_to_xml(mtl_dict):
     # Output the XML in the same directory as the MTL
 
     for key in mtl_dict:
-        # New .xml file to be created
-        new_file = key.replace('.txt', '.xml')
         try:
             # Fileinput is used here instead of Open so we can readline()
             with fileinput.input(files=key, mode='r') as f:
@@ -64,10 +62,8 @@ def mtl_to_xml(mtl_dict):
                 first_line = first_line[(first_line.index('=')) + 2:]
                 # Create the root of the ElementTree from the first Group in the MTL file.
                 root = etree.Element(first_line)
-
                 # Holding variable for storing current Element
                 current_group = ''
-
                 for line in f:
                     try:
                         # Remove unneeded whitespace.
@@ -105,10 +101,15 @@ def mtl_to_xml(mtl_dict):
                 for element in root:
                     indent(element)
 
+                # New .xml file to be created
+                new_file = key.replace('.txt', '.xml')
+
                 # Build an ElementTree from the Elements and SubElements created above.
                 xml_tree = etree.ElementTree(root)
+
                 # Write out the ElementTree to the new .xml file.
                 xml_tree.write(new_file, encoding="us-ascii", xml_declaration=True)
+
         except FileNotFoundError:
             print('That file does not exist.')
         except Exception as e:
