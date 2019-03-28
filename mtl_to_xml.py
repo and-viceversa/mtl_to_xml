@@ -10,7 +10,8 @@ import xml.etree.ElementTree as etree
 
 def target_mode(file_name):
     # Send a single file to the mtl_to_xml conversion method.
-    mtl_to_xml(file_name)
+    mtl_dict = {file_name: file_name}
+    mtl_to_xml(mtl_dict)
 
 
 def scan_mode():
@@ -53,7 +54,6 @@ def mtl_to_xml(mtl_dict):
 
     for key in mtl_dict:
         try:
-            # Fileinput is used here instead of Open so we can readline()
             with fileinput.input(files=key, mode='r') as f:
                 # Read first line of MTL as root Element.
                 first_line = f.readline().strip()
@@ -64,12 +64,18 @@ def mtl_to_xml(mtl_dict):
                 root = etree.Element(first_line)
                 # Holding variable for storing current Element
                 current_group = ''
+
                 for line in f:
+                    # Remove unneeded whitespace.
+                    temp = line.strip()
+                    # Remove unneeded double quotes.
+                    temp = temp.replace("\"", "")
+
+                    # Silently break when hitting end of MTL file.
+                    if temp == 'END':
+                        break
+
                     try:
-                        # Remove unneeded whitespace.
-                        temp = line.strip()
-                        # Remove unneeded double quotes.
-                        temp = temp.replace("\"", "")
                         # MTL is structured like a series of key:value pairs separated by an '='.
                         # pre gets the 'key' before the '='
                         # post get the 'value' after the '='
@@ -78,6 +84,7 @@ def mtl_to_xml(mtl_dict):
                     except Exception as e:
                         # A catch-all Exception block isn't a good idea.
                         # When we hit the end of the file, silently break.
+                        print('Make sure you\'re using an un-edited MTL file.')
                         print(e)
                         break
                     # MTL files use End_Group to denote the end of an Element.
@@ -144,7 +151,7 @@ def parse_args():
                         action='store',
                         required=False,
                         help='Target mode converts a single MTL file to XML. \n '
-                             'The script must be run in the same directory as the MTL file or include a filepath. \n '
+                             'The script must be run in the same directory as the MTL file. \n '
                              'Example: mtl_to_xml -t your_landsat_file_MTL.txt \n')
 
     parser.add_argument('-d', '--directory',

@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="mtl_to_xml",
-    version="0.2.3",
+    version="0.2.4",
     packages=find_packages(),
     scripts=['mtl_to_xml.py'],
     author="AdamR",

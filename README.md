@@ -1,11 +1,11 @@
-**Convert Landsat 8 MTL metadata files to XML.**
+## **Convert Landsat 8 MTL metadata files to XML.**
 
-Usage:
+**Usage:**
 
 mtl_to_xml has three modes.
 
 1. -t Target mode converts a single MTL file to XML.
-The script must be run in the same directory as the MTL file or use a filepath.
+The script must be run in the same directory as the MTL file.
 Example: mtl_to_xml -t your_landsat_file_MTL.txt
 
 2. -d Directory mode converts all MTL files in the current directory to XML.
